@@ -1,8 +1,6 @@
 # Expense Management and Authorization System
 
----
-
-## System Architecture Diagram (Landscape Format)
+## System Architecture Diagram
 
 ```mermaid
 graph LR
