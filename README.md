@@ -86,6 +86,7 @@ A secure, full-stack Java CRUD application that leverages JSON Web Tokens (JWT) 
 | **Javalin** | Lightweight, high-performance web framework handling REST API routing and service endpoints. |
 | **Hibernate** | Enterprise Object-Relational Mapping (ORM) framework bridging the database and DAO layer. |
 
+
 ## 🔒 Security & State Management
 
 To maintain a secure, stateless ecosystem, the frontend handles JWT architecture using modern web application security best practices:
@@ -109,15 +110,18 @@ To maintain a secure, stateless ecosystem, the frontend handles JWT architecture
 
 ## Technical Challenges & Solutions
 
+
 *   **Challenge: Mitigation of Token Theft and Cross-Site Scripting (XSS) Vulnerabilities**
   
     *   **Problem:** Storing signed JSON Web Tokens (JWT) in standard client-side browser storage (like LocalStorage) exposed corporate authorization keys to script-injection exploits, creating a high risk of administrative privilege hijacking.
     *   **Solution:** Implemented **`HttpOnly` Cookie Storage** architecture to house issued session tokens. By restricting client-side script visibility completely, tokens are automatically injected into transaction contexts by the browser layers, eliminating token extraction pathways and enforcing strong front-of-house security barriers.
 
+
 *   **Challenge: Domain-Persistence Coupling and SQL Maintenance Overhead**
   
     *   **Problem:** Manually constructing native SQL query blocks inside standard corporate controllers created tight framework coupling, leaving database schemas fragile to modifications and introducing data mapping latency.
     *   **Solution:** Integrated a specialized **Hibernate ORM framework layer** backed by isolated Data Access Objects. This pattern separates entity abstractions from relational mechanics, automating data mutations and query caching pipelines to achieve clean code separation and accelerated execution times.
+      
 
 *   **Challenge: State Consistency and Validation Drift in Stateless API Operations**
   
